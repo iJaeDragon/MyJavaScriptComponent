@@ -1,0 +1,2 @@
+# MyJavaScriptComponent
+MyJavaScriptComponent
