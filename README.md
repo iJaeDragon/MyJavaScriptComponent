@@ -7,5 +7,5 @@ codepen : https://codepen.io/search/pens?q=button
 
 uiverse : https://uiverse.io/
 
-JSDELIVR : https://www.jsdelivr.com/
+Grid.js : https://gridjs.io/docs/install
  - grid
