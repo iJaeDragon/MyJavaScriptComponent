@@ -9,3 +9,9 @@ uiverse : https://uiverse.io/
 
 Grid.js : https://gridjs.io/docs/install
  - grid
+
+Iconstore.co : https://iconstore.co/
+ - Free icon
+
+Readme.so : https://readme.so/
+ - markdown
