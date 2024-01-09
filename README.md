@@ -3,9 +3,10 @@
 ## 복붙
 
 codepen : https://codepen.io/search/pens?q=button
- - button
+ - component
 
 uiverse : https://uiverse.io/
+ - component
 
 Grid.js : https://gridjs.io/docs/install
  - grid
