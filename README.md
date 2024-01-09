@@ -19,3 +19,6 @@ Readme.so : https://readme.so/
 
 templated : https://templated.co/3/
  - templated
+
+SweetAlert2 : https://sweetalert2.github.io/
+ - Modal
