@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>grid.js Simple Example</title>
+  <link rel="stylesheet" href="./mermaid.min.css" />
+  <script src="./gridjs.umd.js"></script>
+</head>
+<body>
+
+<div id="grid"></div>
+
+<script>
+  const grid = new gridjs.Grid({
+    columns: ['Name', 'Age', 'Country'],
+    data: [
+      ['John Doe', 30, 'USA'],
+      ['Jane Doe', 25, 'Canada'],
+      ['Bob Smith', 35, 'UK'],
+    ],
+  });
+
+  grid.on('rowClick', (row, index) => {
+    // row는 클릭된 행의 데이터를 나타내며, index는 행의 인덱스입니다.
+    console.log('Clicked row:', row);
+  });
+
+  grid.render(document.getElementById('grid'));
+</script>
+
+</body>
+</html>

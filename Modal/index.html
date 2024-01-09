@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JavaScript Modal</title>
+    <script src="ModalPopup.js"></script>
+    <style>
+        body {
+            margin: 0;
+            font-family: 'Arial', sans-serif;
+            overflow: hidden;
+        }
+    </style>
+</head>
+<body>
+
+<script>
+    document.addEventListener('DOMContentLoaded', function () {
+        const layerPopup = new ModalPopup("./content1.html");
+        layerPopup.width = 300;
+        layerPopup.height = 300;
+        layerPopup.title = "test";
+        layerPopup.modalOpen();
+    });
+</script>
+
+</body>
+</html>
