@@ -16,3 +16,6 @@ Iconstore.co : https://iconstore.co/
 
 Readme.so : https://readme.so/
  - markdown
+
+templated : https://templated.co/3/
+ - templated
