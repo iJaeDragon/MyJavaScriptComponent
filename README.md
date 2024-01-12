@@ -22,3 +22,6 @@ templated : https://templated.co/3/
 
 SweetAlert2 : https://sweetalert2.github.io/
  - Modal
+
+BootStrap : https://getbootstrap.com/
+- layout
