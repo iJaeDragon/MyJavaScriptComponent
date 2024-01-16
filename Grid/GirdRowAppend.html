@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="./mermaid.min.css" />
+    <script src="./gridjs.umd.js"></script>
+</head>
+<body>
+    <div id="grid"></div>
+
+    <input id="rowAppend" type="button" value="+">
+
+<script>
+    let grid
+    window.onload = function() {
+        grid = new gridjs.Grid({
+            columns: [
+                {
+                    id: 'name',
+                    name: '이름', 
+                    attributes: {
+                        "contenteditable": true
+                    }
+                },
+                {
+                    id: 'age',
+                    name: '나이', 
+                    attributes: {
+                        "contenteditable": true
+                    }
+                }
+            ],
+            data: [
+                {name : 'John Doe', age : '30'},
+                {name : 'Jane Doe', age : '25'}
+            ]
+        }).render(document.getElementById('grid'));
+
+        
+        headerReadOnly();
+
+        grid.on('rowClick', (row, index) => {
+            // row는 클릭된 행의 데이터를 나타내며, index는 행의 인덱스입니다.
+            console.log('Clicked row:', row);
+        });
+    }
+
+    document.getElementById("rowAppend").onclick = function() {
+        grid.updateConfig({
+            data : [...grid.config.data, []]
+        }).forceRender();
+        headerReadOnly();
+    }
+
+    const headerReadOnly = function() {
+        setTimeout(function() {
+            document.getElementById('grid').querySelectorAll('th').forEach((th, index) => {
+                th.querySelector('div').setAttribute('contentEditable', 'false');
+            });    
+        }, 100);
+    }
+</script>
+</body>
+</html>
