@@ -14,14 +14,13 @@
 
     <script>
         let grid
-        window.onload = function() {
+        document.addEventListener('DOMContentLoaded', function () {
             grid = new gridjs.Grid({
                 columns: [
                     {
-                        id: 'myCheckbox',
+                        id: 'checkBox',
                         name: 'Select',
                         plugin: {
-                            // install the RowSelection plugin
                             component: gridjs.plugins.selection.RowSelection
                         }
                     },
@@ -44,22 +43,12 @@
                     {name : 'John Doe', age : '30'},
                     {name : 'Jane Doe', age : '25'}
                 ]
-            }).render(document.getElementById('grid'));
-
-            grid.on('rowClick', (row, index) => {
-                // row는 클릭된 행의 데이터를 나타내며, index는 행의 인덱스입니다.
-                console.log('Clicked row:', row);
             });
 
-            grid.on('ready', () => {
-                // find the plugin with the give plugin ID
-                const checkboxPlugin = grid.config.plugin.get('selectRow');
-                // read the selected rows from the plugin's store
-                console.log('selected rows:', checkboxPlugin.props.store.state);
-            })
+            grid.render(document.getElementById('grid'));
 
             customGridMethod.headerReadOnly(document.getElementById('grid'));
-        }
+        });
 
 
 
@@ -67,6 +56,7 @@
             grid.updateConfig({
                 data : [...grid.config.data, []]
             }).forceRender();
+
             customGridMethod.headerReadOnly(document.getElementById('grid'));
         }
 
