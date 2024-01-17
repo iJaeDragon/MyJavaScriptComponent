@@ -28,8 +28,14 @@ loadCSS('./lib/mermaid.min.css');
 
 /* =============================== Custom Method =============================== */
 
-const test = function() {
-
+const customGridMethod = {
+    headerReadOnly: function(gridElement) {
+        setTimeout(function() {
+            gridElement.querySelectorAll('th').forEach((th, index) => {
+                th.querySelector('div').setAttribute('contentEditable', 'false');
+            });
+        }, 100);
+    }
 }
 
 /* =============================== Custom End =============================== */
