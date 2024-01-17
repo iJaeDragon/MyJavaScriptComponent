@@ -5,18 +5,27 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <link rel="stylesheet" href="./lib/mermaid.min.css" />
-    <script src="./lib/gridjs.umd.js"></script>
+    <script src="./custom-grid.md.js"></script>
 </head>
 <body>
-    <div id="grid"></div>
-
-    <input id="rowAppend" type="button" value="+">
+    <div style="width:80%; margin:0 auto;">
+        <div id="grid"></div>
+        <input id="rowAppend" type="button" value="+">
+    </div>
 
 <script>
     let grid
     window.onload = function() {
         grid = new gridjs.Grid({
             columns: [
+                {
+                    id: 'myCheckbox',
+                    name: 'Select',
+                    plugin: {
+                        // install the RowSelection plugin
+                        component: gridjs.plugins.selection.RowSelection,
+                    }
+                },
                 {
                     id: 'name',
                     name: '이름', 

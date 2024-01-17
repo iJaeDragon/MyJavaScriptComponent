@@ -1,10 +1,3 @@
-
-var link = document.createElement('link');
-link.rel = 'stylesheet';
-link.type = 'text/css';
-link.href = './mermaid.min.css';
-document.head.appendChild(link);
-
 !(function (t, n) {
   "object" == typeof exports && "undefined" != typeof module
     ? n(exports)
