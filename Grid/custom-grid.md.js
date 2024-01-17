@@ -11,8 +11,19 @@ function loadScript(url) {
     }
 }
 
+function loadCSS(url) {
+    var link = document.createElement('link');
+    link.rel = 'stylesheet';
+    link.type = 'text/css';
+    link.href = url;
+  
+    document.head.appendChild(link);
+}
+
 loadScript('./lib/gridjs.umd.js');
 loadScript('./lib/selection.umd.js');
+
+loadCSS('./lib/mermaid.min.css');
 /* =============================== load End =============================== */
 
 /* =============================== Custom Method =============================== */

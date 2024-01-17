@@ -4,7 +4,6 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
-    <link rel="stylesheet" href="./lib/mermaid.min.css" />
     <script src="./custom-grid.md.js"></script>
 </head>
 <body>
@@ -13,63 +12,63 @@
         <input id="rowAppend" type="button" value="+">
     </div>
 
-<script>
-    let grid
-    window.onload = function() {
-        grid = new gridjs.Grid({
-            columns: [
-                {
-                    id: 'myCheckbox',
-                    name: 'Select',
-                    plugin: {
-                        // install the RowSelection plugin
-                        component: gridjs.plugins.selection.RowSelection,
+    <script>
+        let grid
+        window.onload = function() {
+            grid = new gridjs.Grid({
+                columns: [
+                    {
+                        id: 'myCheckbox',
+                        name: 'Select',
+                        plugin: {
+                            // install the RowSelection plugin
+                            component: gridjs.plugins.selection.RowSelection,
+                        }
+                    },
+                    {
+                        id: 'name',
+                        name: '이름',
+                        attributes: {
+                            "contenteditable": true
+                        }
+                    },
+                    {
+                        id: 'age',
+                        name: '나이',
+                        attributes: {
+                            "contenteditable": true
+                        }
                     }
-                },
-                {
-                    id: 'name',
-                    name: '이름', 
-                    attributes: {
-                        "contenteditable": true
-                    }
-                },
-                {
-                    id: 'age',
-                    name: '나이', 
-                    attributes: {
-                        "contenteditable": true
-                    }
-                }
-            ],
-            data: [
-                {name : 'John Doe', age : '30'},
-                {name : 'Jane Doe', age : '25'}
-            ]
-        }).render(document.getElementById('grid'));
+                ],
+                data: [
+                    {name : 'John Doe', age : '30'},
+                    {name : 'Jane Doe', age : '25'}
+                ]
+            }).render(document.getElementById('grid'));
 
-        
-        headerReadOnly();
 
-        grid.on('rowClick', (row, index) => {
-            // row는 클릭된 행의 데이터를 나타내며, index는 행의 인덱스입니다.
-            console.log('Clicked row:', row);
-        });
-    }
+            headerReadOnly();
 
-    document.getElementById("rowAppend").onclick = function() {
-        grid.updateConfig({
-            data : [...grid.config.data, []]
-        }).forceRender();
-        headerReadOnly();
-    }
+            grid.on('rowClick', (row, index) => {
+                // row는 클릭된 행의 데이터를 나타내며, index는 행의 인덱스입니다.
+                console.log('Clicked row:', row);
+            });
+        }
 
-    const headerReadOnly = function() {
-        setTimeout(function() {
-            document.getElementById('grid').querySelectorAll('th').forEach((th, index) => {
-                th.querySelector('div').setAttribute('contentEditable', 'false');
-            });    
-        }, 100);
-    }
-</script>
+        document.getElementById("rowAppend").onclick = function() {
+            grid.updateConfig({
+                data : [...grid.config.data, []]
+            }).forceRender();
+            headerReadOnly();
+        }
+
+        const headerReadOnly = function() {
+            setTimeout(function() {
+                document.getElementById('grid').querySelectorAll('th').forEach((th, index) => {
+                    th.querySelector('div').setAttribute('contentEditable', 'false');
+                });
+            }, 100);
+        }
+    </script>
 </body>
 </html>
