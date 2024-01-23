@@ -10,6 +10,9 @@ class ModalPopup {
         // 모달 타이틀
         this.title = "";
 
+        // 컨텐츠를 iFrame으로 제공할지 여부
+        this.iframe = false;
+
         // 최상위 모달 컨테이너
         this.modalRootContainer = undefined;
 
@@ -158,10 +161,27 @@ class ModalPopup {
         fetch(contentUrl)
             .then(response => response.text())
             .then(html => {
-                const modalBody = document.createElement('div');
-                modalBody.style.padding = '10px';
-                modalBody.innerHTML = html;
-                modalContent.appendChild(modalBody);
+
+
+                if(this.iframe) {
+                    const iframe = document.createElement('iframe');
+                    modalContent.appendChild(iframe);
+
+                    // iFrame 스타일
+                    iframe.style.width = '100%';
+                    iframe.style.height = '100%';
+                    iframe.frameBorder = '0';
+
+                    // iFrame 내부에 HTML 삽입
+                    iframe.contentDocument.open();
+                    iframe.contentDocument.write(html);
+                    iframe.contentDocument.close();
+                } else {
+                    const modalBody = document.createElement('div');
+                    modalBody.style.padding = '10px';
+                    modalBody.innerHTML = html;
+                    modalContent.appendChild(modalBody);
+                }
 
                 this.modalRootContainer = modalContainer;
             })
