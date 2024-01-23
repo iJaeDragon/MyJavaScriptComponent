@@ -20,11 +20,11 @@ class ModalPopup {
     }
 
     // 팝업을 닫는 함수
-    modalClose = function() {
+    modalClose = function(callBackData) {
         if(this.modalRootContainer != undefined) {
             document.body.removeChild(this.modalRootContainer);
             this.modalRootContainer = undefined;
-            this.callBackMethod();
+            this.callBackMethod(callBackData);
         }
     }
 
