@@ -172,6 +172,9 @@ class ModalPopup {
                     iframe.style.height = '100%';
                     iframe.frameBorder = '0';
 
+                    // 'this' (myObject 인스턴스)를 iframe의 window 객체에 추가
+                    iframe.contentWindow.parent = this;
+
                     // iFrame 내부에 HTML 삽입
                     iframe.contentDocument.open();
                     iframe.contentDocument.write(html);
