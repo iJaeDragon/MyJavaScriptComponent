@@ -3,27 +3,12 @@
 <head>
     <meta charset="UTF-8">
     <title>Title</title>
-    <script src="./lib/sweetalert2.js"></script>
+    <script src="./lib/custom-sweetalert2.md.js"></script>
 </head>
 <body>
     <script>
-        Swal.fire({
-            title: "Are you sure?",
-            text: "You won't be able to revert this!",
-            icon: "warning",
-            showCancelButton: true,
-            confirmButtonColor: "#3085d6",
-            cancelButtonColor: "#d33",
-            confirmButtonText: "Yes, delete it!"
-        }).then((result) => {
-            if (result.isConfirmed) {
-                Swal.fire({
-                    title: "Deleted!",
-                    text: "Your file has been deleted.",
-                    icon: "success"
-                });
-            }
-        });
+        customSwalMethod.confirm("정상적으로 처리됐습니다.\n 작업을 이어 하시겠습니까?");
     </script>
+
 </body>
 </html>
