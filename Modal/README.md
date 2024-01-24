@@ -1,5 +1,6 @@
 ## 호출 예
 
+```
 const layerPopup = new ModalPopup("/page.do");
 		        layerPopup.width = 900;
 		        layerPopup.height = 600;
@@ -9,8 +10,10 @@ const layerPopup = new ModalPopup("/page.do");
 		        	alert("팝업 닫힘");
 		        }
 		        layerPopup.modalOpen();
-
+```
 
 ## 팝업 내 닫기 호출
 
+```
 window.parent.window.parent.modalClose('callData');
+```
