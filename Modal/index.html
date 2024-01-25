@@ -12,17 +12,51 @@
             overflow: hidden;
         }
     </style>
+    <button id="tp1">type1</button>
+    <button id="tp2">type2</button>
 </head>
 <body>
 
 <script>
-    document.addEventListener('DOMContentLoaded', function () {
+    document.getElementById("tp1").onclick = function() {
+        type1();
+    }
+    document.getElementById("tp2").onclick = function() {
+        type2();
+    }
+
+    function type1() {
         const layerPopup = new ModalPopup("./content1.html");
         layerPopup.width = 700;
         layerPopup.height = 300;
         layerPopup.title = "Modal Popup Title";
+        layerPopup.iframe = true;
+        layerPopup.callBackMethod = function(callback) {
+            alert("콜백!");
+        }
         layerPopup.modalOpen();
-    });
+    }
+
+    async function type2() {
+        const str = await aType2();
+        alert(str);
+    }
+
+    async function aType2() {
+        const layerPopup = new ModalPopup("./content1.html");
+        layerPopup.width = 700;
+        layerPopup.height = 300;
+        layerPopup.title = "Modal Popup Title";
+        layerPopup.iframe = true;
+        return new Promise((resolve, reject) => {
+            layerPopup.callBackMethod = function(callBack) {
+                resolve("콜백!");
+            };
+            layerPopup.modalOpen();
+        });
+    }
+
+
 </script>
 
 </body>
